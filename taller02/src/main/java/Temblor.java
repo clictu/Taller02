@@ -1,12 +1,12 @@
-package taller02.main;
+
 
 import java.util.Random;
 
-public class Taller {
+public class Temblor {
     private double[][] lecturasSismicas;
 
     // Constructor
-    public Taller() {
+    public Temblor() {
         // No inicializamos la matriz hasta que se ingrese la cantidad de días
     }
 
@@ -70,5 +70,33 @@ public class Taller {
             suma += lecturasSismicas[dia - 1][i];
         }
         return suma / lecturasSismicas[dia - 1].length;
+    }
+
+    // Método principal
+    public static void main(String[] args) {
+        Temblor temblor = new Temblor();
+        temblor.ingresarCantidadDias(7); // Ingresa la cantidad de días a registrar
+        temblor.generarLecturasAleatorias(); // Genera las lecturas sismológicas aleatorias
+
+        // Muestra las lecturas sismológicas
+        System.out.println("Lecturas sismológicas:");
+        for (int i = 0; i < temblor.lecturasSismicas.length; i++) {
+            System.out.print("Día " + (i + 1) + ": ");
+            for (int j = 0; j < temblor.lecturasSismicas[i].length; j++) {
+                System.out.print(temblor.lecturasSismicas[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // Obtiene estadísticas para un día específico
+        int diaEspecifico = 3; // Especifica el día del que se desean obtener estadísticas
+        double maxima = temblor.obtenerMaximaLecturaDia(diaEspecifico);
+        double minima = temblor.obtenerMinimaLecturaDia(diaEspecifico);
+        double promedio = temblor.obtenerPromedioLecturaDia(diaEspecifico);
+
+        System.out.println("\nEstadísticas para el día " + diaEspecifico + ":");
+        System.out.println("Lectura máxima: " + maxima);
+        System.out.println("Lectura mínima: " + minima);
+        System.out.println("Promedio de lecturas: " + promedio);
     }
 }
