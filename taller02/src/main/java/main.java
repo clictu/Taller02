@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class main {
+    //(Intente hacer las otras opciones pero no me alcanzó el tiempo, una disculpa de antemano.)//
+
 
     //-------------------------------Sismo mas intenso--------------------------------//
     public static void sismoMasIntenso(double[][] matriz) {
